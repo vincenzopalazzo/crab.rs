@@ -1,14 +1,12 @@
 //! plugin macros usage example.
 extern crate clightningrpc_plugin_macros;
-use clightningrpc_plugin_macros::{
-    add_plugin_rpc, notification, plugin_register_notification, rpc_method,
-};
+use clightningrpc_plugin_macros::{add_plugin_rpc, notification, rpc_method};
 use serde_json::{json, Value};
 
+use clightningrpc_plugin::add_rpc;
 use clightningrpc_plugin::commands::RPCCommand;
 use clightningrpc_plugin::plugin::Plugin;
 use clightningrpc_plugin::types::LogLevel;
-use clightningrpc_plugin::{add_rpc, register_notification};
 
 #[rpc_method(
     rpc_name = "foo_macro",

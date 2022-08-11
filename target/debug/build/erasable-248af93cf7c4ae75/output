@@ -1,0 +1,2 @@
+cargo:rerun-if-env-changed=ERASABLE_ENFORCE_1_1_0_SEMANTICS
+cargo:rerun-if-changed=build.rs

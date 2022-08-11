@@ -1,14 +1,15 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
-}
+use teloxide::{prelude::*, utils::command::BotCommands};
+mod cmd;
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+use crate::cmd::{answer, Command};
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
+struct CrabBot;
+
+impl CrabBot {
+    async fn bind() {
+        pretty_env_logger::init();
+        log::info!("Starting command bot...");
+        let bot = Bot::from_env().auto_send();
+        teloxide::commands_repl(bot, answer, Command::ty()).await;
     }
 }
