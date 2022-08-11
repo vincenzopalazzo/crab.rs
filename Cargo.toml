@@ -1,0 +1,6 @@
+[workspace]
+
+members = [
+        "crab_plugin",
+        "crab_telegram"
+]
