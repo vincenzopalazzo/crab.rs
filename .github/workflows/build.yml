@@ -32,6 +32,9 @@ jobs:
       - name: Run cargo test docs
         run: cargo test --doc
 
+      - name: Run test
+        run: make check
+
   lints:
     name: Lints
     runs-on: ubuntu-latest

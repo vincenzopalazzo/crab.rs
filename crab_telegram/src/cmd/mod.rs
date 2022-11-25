@@ -8,8 +8,6 @@ pub enum Command {
     Help,
     #[command(description = "handle a username.")]
     Username(String),
-    #[command(description = "handle a username and an age.", parse_with = "split")]
-    UsernameAndAge { username: String, age: u8 },
 }
 
 pub async fn answer(
@@ -25,13 +23,6 @@ pub async fn answer(
         Command::Username(username) => {
             bot.send_message(message.chat.id, format!("Your username is @{username}."))
                 .await?
-        }
-        Command::UsernameAndAge { username, age } => {
-            bot.send_message(
-                message.chat.id,
-                format!("Your username is @{username} and age is {age}."),
-            )
-            .await?
         }
     };
 
